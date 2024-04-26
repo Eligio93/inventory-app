@@ -4,20 +4,22 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 require('dotenv').config()
-const mongoose= require('mongoose')
+
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+const mongoose= require('mongoose')
 mongoose.set("strictQuery", false);
-const dev_URL='mongodb+srv://'+process.env.DBUSER+':'+process.env.DBPSSW+'@cluster0.6cfbgho.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0';
+const dev_URL='mongodb+srv://'+process.env.DBUSER+':'+process.env.DBPSSW+'@cluster0.6cfbgho.mongodb.net/inventory_app?retryWrites=true&w=majority&appName=Cluster0';
 //insert prod string || dev string
 const mongoDB = dev_URL;
 
 main().catch((err) => console.log(err));
 async function main() {
   await mongoose.connect(mongoDB);
+  console.log('connesso al server')
 }
 
 
