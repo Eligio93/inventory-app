@@ -13,6 +13,9 @@ router.get('/', function(req, res, next) {
 /*GET items list*/
 router.get('/items',itemController.items_list)
 
+/*GET item form to create*/
+router.get('/items/create',itemController.item_create);
+
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
 

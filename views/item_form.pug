@@ -1,0 +1,39 @@
+extends layout
+
+block content
+  .main
+    form(action="") 
+        .field
+            label.label Name
+            .control
+                input.input(type='text' placeholder='Item Name' required)
+        .field
+            label.label Category
+            .control
+                .select
+                    select
+                        each category in categories
+                            option=category.name
+        .field
+            label.label Brand
+            .control
+                .select
+                    select
+                        each brand in brands
+                            option=brand.name
+        .field
+            label.label Price ($)
+            .control
+                input.input(type='number' min='1' required)
+        .field
+            label.label Qty in Stock
+            .control
+                input.input(type='number' min='0' required)
+        .field
+            label.label Description
+        .control
+            textarea.textarea(placeholder='Textarea' required)
+        .control
+            button.button.is-link Submit
+        .control
+            button.button.is-link.is-light Cancel
