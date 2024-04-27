@@ -3,17 +3,21 @@ const router = express.Router();
 //controller modules
 const itemController=require('../controllers/itemController')
 const categoryController = require('../controllers/categoryController')
+const brandController = require('../controllers/brandController')
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
   res.render('index', { title: 'Express' });
 });
 
-/*items list*/
+/*GET items list*/
 router.get('/items',itemController.items_list)
 
-/*categories list*/
+/*GET categories list*/
 router.get('/categories',categoryController.categories_list)
+
+/*GET brands list*/
+router.get('/brands',brandController.brands_list)
 
 
 module.exports = router;
