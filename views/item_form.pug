@@ -2,38 +2,32 @@ extends layout
 
 block content
   .main
-    form(action="") 
+    form(method='POST')
+        .field 
+            label.label(for='item_name') Item Name:
+            input#item_name.input(type='text' name='item_name' placeholder='Item Name' required)
+        .field 
+            label.label(for='item_price') Price($):
+            input#item_price.input(type='number' min=1 name='item_price' required)
+        .field 
+            label.label(for='item_stock') Qty in stock:
+            input#item_stock.input(type='number' min=0 name='item_stock' required)
         .field
-            label.label Name
-            .control
-                input.input(type='text' placeholder='Item Name' required)
-        .field
-            label.label Category
-            .control
-                .select
-                    select
-                        each category in categories
+            label.label(for='item_category') Category:
+            .select
+                    select#item_category(name='item_category')
+                        each category in categories   
                             option=category.name
         .field
-            label.label Brand
-            .control
-                .select
-                    select
-                        each brand in brands
+            label.label(for='item_brand') Brands:
+            .select
+                    select#item_brand(name='item_brand')
+                        each brand in brands  
                             option=brand.name
-        .field
-            label.label Price ($)
-            .control
-                input.input(type='number' min='1' required)
-        .field
-            label.label Qty in Stock
-            .control
-                input.input(type='number' min='0' required)
-        .field
-            label.label Description
-        .control
-            textarea.textarea(placeholder='Textarea' required)
-        .control
-            button.button.is-link Submit
-        .control
-            button.button.is-link.is-light Cancel
+        .field 
+            label.label(for='item_description') Description:
+            textarea#item_desccription.textarea(name='item_description' required)
+        input.button.is-primary(type='submit' value='Submit')
+
+
+        //Bisogna inserire il controllo nel caso non ci siano categoriee brand
