@@ -16,6 +16,9 @@ router.get('/items',itemController.items_list)
 /*GET item form to create*/
 router.get('/items/create',itemController.item_create);
 
+/*POST item create form*/
+router.post('/items/create',itemController.item_create_post)
+
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
 
