@@ -17,13 +17,13 @@ block content
             .select
                     select#item_category(name='item_category')
                         each category in categories   
-                            option=category.name
+                            option(value=category._id) #{category.name}
         .field
             label.label(for='item_brand') Brands:
             .select
                     select#item_brand(name='item_brand')
                         each brand in brands  
-                            option=brand.name
+                            option(value=brand._id) #{brand.name}
         .field 
             label.label(for='item_description') Description:
             textarea#item_desccription.textarea(name='item_description' required)
