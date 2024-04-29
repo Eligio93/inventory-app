@@ -8,5 +8,6 @@ block content
         p=item.name
         br
         .is-grouped.buttons 
-            input(type='submit' value='Delete').button.is-danger.is-outlined.is-medium
+            input(type="hidden", name='id' value=item._id)
+            button(type='submit').button.is-danger.is-outlined.is-medium Delete
             a(href=item.url).button.is-warning.is-outlined.is-medium Cancel
