@@ -1,0 +1,17 @@
+extends layout
+
+block content
+  .main
+    form(method='POST')
+        .field 
+            label.label(for='category_name') Category Name:
+            input#category_name.input(type='text' name='category_name' placeholder='Name your Category' required value=(category === undefined ? '' : category.name))
+        .field 
+            label.label(for='category_description') Category Description:
+            textarea#category_description.textarea(name='category_description' required placeholder='Describe your Category')=(category === undefined ? '' : category.description)
+        input.button.is-primary(type='submit' value='Submit')
+
+    if errors
+        ul
+        for error in errors
+            li!= error.msg
