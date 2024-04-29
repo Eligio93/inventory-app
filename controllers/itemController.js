@@ -62,9 +62,27 @@ exports.item_create_post=[
         }else{
             await item.save();
             res.redirect('/items')
-
         }
-
-     })
-    
+     })    
 ]
+
+/*GET Item details*/
+exports.item_detail= asyncHandler(async(req,res,next)=>{
+    const item= await Item.findById(req.params.id).populate('category').populate('brand').exec();
+    if (item === null) {
+        // No results.
+        const err = new Error("Item not found");
+        err.status = 404;
+        return next(err);
+    }
+    res.render('item_detail',{item:item})
+})
+
+/*GET delete item */
+exports.item_delete_get=asyncHandler(async(req,res,next)=>{
+    const item= await Item.findById(req.params.id,'name').exec();
+    if(item===null){
+        res.render('/items')
+    }
+    res.render('item_delete',{item:item})
+})
