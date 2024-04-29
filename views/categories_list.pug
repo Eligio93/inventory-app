@@ -8,5 +8,6 @@ block content
             each category in categories_list 
                 li 
                     a(href=category.url) #{category.name}
+        a.button.is-primary(href='/categories/create') Add New Category
     else    
         p There s no Categories
