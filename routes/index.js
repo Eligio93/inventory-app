@@ -36,6 +36,12 @@ router.post('/items/:id/edit',itemController.item_edit_post)
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
 
+/*GET category form*/
+router.get('/categories/create',categoryController.category_form_get)
+
+/*POST new category form*/
+router.post('/categories/create',categoryController.category_form_post)
+
 /*GET brands list*/
 router.get('/brands',brandController.brands_list)
 
