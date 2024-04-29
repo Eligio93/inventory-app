@@ -19,11 +19,18 @@ router.get('/items/create',itemController.item_create);
 /*POST item create form*/
 router.post('/items/create',itemController.item_create_post)
 
+/*GET Item detail*/
+router.get('/items/:id',itemController.item_detail);
+
+/*GET Item delete*/
+router.get('/items/:id/delete',itemController.item_delete_get);
+
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
 
 /*GET brands list*/
 router.get('/brands',brandController.brands_list)
+
 
 
 module.exports = router;
