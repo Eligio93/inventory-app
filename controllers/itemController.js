@@ -86,3 +86,19 @@ exports.item_delete_get=asyncHandler(async(req,res,next)=>{
     }
     res.render('item_delete',{item:item})
 })
+/*POST delete Item*/
+exports.item_delete_post=asyncHandler(async(req,res,next)=>{
+    console.log(req.body)
+    await Item.findByIdAndDelete(req.body.id);
+    res.redirect("/items");
+})
+/*GET Item Edit form*/
+exports.item_edit_get=asyncHandler(async(req,res,next)=>{
+  const [item,allCategories,allBrands] = await Promise.all([
+    Item.findById(req.params.id).populate('category').populate('brand').exec(),
+    Category.find().sort({name:1}).exec(),
+    Brand.find().sort({name:1}).exec()
+  ]) 
+  console.log(item.description)
+  res.render("item_form",{item:item,categories:allCategories,brands:allBrands});
+})
