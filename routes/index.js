@@ -30,6 +30,9 @@ router.post('/items/:id/delete',itemController.item_delete_post)
 /*GET form for UPDATE Item*/
 router.get('/items/:id/edit',itemController.item_edit_get)
 
+/*POST form to UPDATE Item*/
+router.post('/items/:id/edit',itemController.item_edit_post)
+
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
 
