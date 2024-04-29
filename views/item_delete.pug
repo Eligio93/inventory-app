@@ -1,0 +1,12 @@
+extends layout
+
+block content
+  .main
+    form(method='POST')
+        p.confirmation Are u sure you want to delete
+        br
+        p=item.name
+        br
+        .is-grouped.buttons 
+            input(type='submit' value='Delete').button.is-danger.is-outlined.is-medium
+            a(href=item.url).button.is-warning.is-outlined.is-medium Cancel
