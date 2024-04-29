@@ -17,7 +17,6 @@ exports.item_create=asyncHandler(async(req,res,next)=>{
     Category.find({},'name').sort({name:1}).exec(),
     Brand.find({},'name').sort({name:1}).exec()
 ])
-    console.log(allCategories)
     res.render('item_form',{categories:allCategories, brands: allBrands})
 })
 /*POST form create item*/
@@ -54,7 +53,6 @@ exports.item_create_post=[
         })
 
         if(!errors.isEmpty()){
-                console.log('errori')
                 console.log(errors)
                 next();
         }else{
