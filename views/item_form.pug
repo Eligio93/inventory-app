@@ -17,17 +17,23 @@ block content
             .select
                     select#item_category(name='item_category')
                         each category in categories
-                            if item    
-                                option(value=item.category._id selected) #{item.category.name}
+                            if item
+                                if item.category.name === category.name    
+                                    option(value=item.category._id selected) #{item.category.name}
+                                else
+                                    option(value=category._id) #{category.name}   
                             else 
-                                option(value=item.category._id) #{item.category.name}   
+                                option(value=category._id) #{category.name}   
         .field
             label.label(for='item_brand') Brands:
             .select
                     select#item_brand(name='item_brand')
                         each brand in brands
                             if item 
-                                option(value=item.brand._id selected) #{item.brand.name}
+                                if item.brand.name === brand.name   
+                                    option(value=item.brand._id selected) #{item.brand.name}
+                                else 
+                                    option(value=brand._id) #{brand.name}
                             else 
                                 option(value=brand._id) #{brand.name}
         .field 
@@ -35,5 +41,8 @@ block content
             textarea.textarea(name='item_description' required)=(item === undefined ? '' : item.description)
         input.button.is-primary(type='submit' value='Submit')
 
-
+    if errors
+        ul
+        for error in errors
+            li!= error.msg
         //Bisogna inserire il controllo nel caso non ci siano categoriee brand
