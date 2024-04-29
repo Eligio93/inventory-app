@@ -17,6 +17,7 @@ exports.item_create=asyncHandler(async(req,res,next)=>{
     Category.find({},'name').sort({name:1}).exec(),
     Brand.find({},'name').sort({name:1}).exec()
 ])
+    console.log(allCategories)
     res.render('item_form',{categories:allCategories, brands: allBrands})
 })
 /*POST form create item*/
@@ -34,13 +35,10 @@ exports.item_create_post=[
     .trim()
     .isFloat({ gt: 1 })
     .escape(),
-    body("item_stock", "ISBN must not be empty")
+    body("item_stock", "Stock must not be negative")
     .trim()
     .isFloat({ min: 0 })
     .escape(),
-    body("item_category", "ISBN must not be empty").trim().escape(),
-    body("item_brand", "ISBN must not be empty").trim().escape(),
-
     //process to create item
     asyncHandler(async(req,res,next)=>{
         //check if there are errors form form
@@ -99,6 +97,53 @@ exports.item_edit_get=asyncHandler(async(req,res,next)=>{
     Category.find().sort({name:1}).exec(),
     Brand.find().sort({name:1}).exec()
   ]) 
-  console.log(item.description)
   res.render("item_form",{item:item,categories:allCategories,brands:allBrands});
 })
+/*POST Item Edit Form*/
+exports.item_edit_post=[
+    //validate and sanitize the form
+    body("item_name", "Name must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+    body("item_description", "Description must not be empty.")
+    .trim()
+    .isLength({ min: 1 })
+    .escape(),
+    body("item_price", "Item Should have a price")
+    .trim()
+    .isFloat({ gt: 1 })
+    .escape(),
+    body("item_stock", "Stock must not be negative")
+    .trim()
+    .isFloat({ min: 0 })
+    .escape(),
+    //process to create item
+    asyncHandler(async(req,res,next)=>{
+        //check if there are errors form form
+        const errors = validationResult(req);
+        //create new item
+        const item = new Item ({
+            _id:req.params.id,
+            name:req.body.item_name,
+            description:req.body.item_description,
+            category:req.body.item_category,
+            price:req.body.item_price,
+            stock:req.body.item_stock,
+            brand:req.body.item_brand
+        })
+
+        if(!errors.isEmpty()){
+                console.log(errors)
+                const [allCategories,allBrands] = await Promise.all([
+                    Category.find().sort({name:1}).exec(),
+                    Brand.find().sort({name:1}).exec()
+                ]) 
+                res.render('item_form',{item:item,categories:allCategories,brands:allBrands,errors:errors.array()})
+                return;
+        }else{
+            const updatedItem=await Item.findByIdAndUpdate(req.params.id,item,{})
+            res.redirect(updatedItem.url)
+        }
+     })    
+]
