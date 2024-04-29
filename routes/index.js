@@ -24,6 +24,11 @@ router.get('/items/:id',itemController.item_detail);
 
 /*GET Item delete*/
 router.get('/items/:id/delete',itemController.item_delete_get);
+/*POST item delete*/
+router.post('/items/:id/delete',itemController.item_delete_post)
+
+/*GET form for UPDATE Item*/
+router.get('/items/:id/edit',itemController.item_edit_get)
 
 /*GET categories list*/
 router.get('/categories',categoryController.categories_list)
