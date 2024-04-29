@@ -1,0 +1,19 @@
+extends layout
+
+block content
+  .main
+    p.titles Item Name
+    p=item.name
+    p.titles Description
+    p=item.description
+    p.titles Qty in stock
+    p=item.stock
+    p.titles Price 
+    p=item.price
+    p.titles Category 
+    p=item.category.name 
+    p.titles Brand 
+    p=item.brand.name
+    .is-grouped.buttons 
+        a(href=item.url+'/delete').button.is-danger.is-outlined.is-medium Delete
+        a.button.is-warning.is-outlined.is-medium Edit
