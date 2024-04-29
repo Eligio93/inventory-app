@@ -5,28 +5,34 @@ block content
     form(method='POST')
         .field 
             label.label(for='item_name') Item Name:
-            input#item_name.input(type='text' name='item_name' placeholder='Item Name' required)
+            input#item_name.input(type='text' name='item_name' placeholder='Item Name' required value=(item === undefined ? '' : item.name))
         .field 
             label.label(for='item_price') Price($):
-            input#item_price.input(type='number' min=1 name='item_price' required)
+            input#item_price.input(type='number' min=1 name='item_price' required value=(item === undefined ? '' : item.price))
         .field 
             label.label(for='item_stock') Qty in stock:
-            input#item_stock.input(type='number' min=0 name='item_stock' required)
+            input#item_stock.input(type='number' min=0 name='item_stock' required value=(item === undefined ? '' : item.stock))
         .field
             label.label(for='item_category') Category:
             .select
                     select#item_category(name='item_category')
-                        each category in categories   
-                            option(value=category._id) #{category.name}
+                        each category in categories
+                            if item    
+                                option(value=item.category._id selected) #{item.category.name}
+                            else 
+                                option(value=item.category._id) #{item.category.name}   
         .field
             label.label(for='item_brand') Brands:
             .select
                     select#item_brand(name='item_brand')
-                        each brand in brands  
-                            option(value=brand._id) #{brand.name}
+                        each brand in brands
+                            if item 
+                                option(value=item.brand._id selected) #{item.brand.name}
+                            else 
+                                option(value=brand._id) #{brand.name}
         .field 
             label.label(for='item_description') Description:
-            textarea#item_desccription.textarea(name='item_description' required)
+            textarea.textarea(name='item_description' required)=(item === undefined ? '' : item.description)
         input.button.is-primary(type='submit' value='Submit')
 
 
