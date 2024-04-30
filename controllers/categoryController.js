@@ -1,4 +1,5 @@
 const Category = require('../models/category');
+const Item = require ('../models/item')
 
 
 
@@ -33,8 +34,8 @@ exports.category_form_post = [
             description: req.body.category_description
         })
         if (!errors.isEmpty()) {
-            console.log(errors)
-            next();
+            res.render('category_form',{category:category, errors:errors.array()})
+            return;
         } else {
             await category.save();
             res.redirect('/categories')
@@ -42,3 +43,23 @@ exports.category_form_post = [
     })
 
 ]
+exports.category_detail=asyncHandler(async(req,res,next)=>{
+    const category= await Category.findById(req.params.id).exec();
+    res.render('category_detail', {category:category})
+})
+exports.category_delete_get=asyncHandler(async(req,res,next)=>{
+    const category= await Category.findById(req.params.id).exec();
+    const categorizedItems = await Item.find({category:category});
+    console.log(categorizedItems.length)
+    res.render('category_delete', {category:category, categorizedItems:categorizedItems})
+});
+
+exports.category_delete_post=asyncHandler(async(req,res,next)=>{
+    let category= await Category.findById(req.params.id).exec();
+    if(category == null){
+        res.redirect('/categories')
+    }
+    await Category.findByIdAndDelete(req.body.id);
+    res.redirect('/categories');
+
+});;
