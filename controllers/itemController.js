@@ -71,7 +71,7 @@ exports.item_detail= asyncHandler(async(req,res,next)=>{
         err.status = 404;
         return next(err);
     }
-    res.render('item_detail',{item:item})
+    res.render('item_detail',{item:item,title:'Item Detail'})
 })
 
 /*GET delete item */
@@ -95,7 +95,7 @@ exports.item_edit_get=asyncHandler(async(req,res,next)=>{
     Category.find().sort({name:1}).exec(),
     Brand.find().sort({name:1}).exec()
   ]) 
-  res.render("item_form",{item:item,categories:allCategories,brands:allBrands});
+  res.render("item_form",{item:item,categories:allCategories,brands:allBrands, title:'Edit Item'});
 })
 /*POST Item Edit Form*/
 exports.item_edit_post=[
