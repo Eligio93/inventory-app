@@ -1,0 +1,14 @@
+extends layout
+
+block content
+  .main
+    form(method='POST')
+        .field 
+            label.label(for='brand_name') Brand Name:
+            input#brand_name.input(type='text' name='brand_name' minlength='3' maxLength='100' placeholder='Brand Name' required value=(brand === undefined ? '' : brand.name))
+        input.button.is-primary(type='submit' value='Submit')
+
+    if errors
+        ul
+        for error in errors
+            li!= error.msg
