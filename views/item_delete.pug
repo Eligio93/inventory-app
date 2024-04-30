@@ -2,12 +2,11 @@ extends layout
 
 block content
   .content
-    form(method='POST')
-        p.confirmation Are u sure you want to delete
-        br
+    h1 DELETE ITEM
+    form(method='POST').info-box
+        p Are u sure you want to delete?
         p=item.name
-        br
-        .is-grouped.buttons 
+        .ops-btn
             input(type="hidden", name='id' value=item._id)
-            button(type='submit').button.is-danger.is-outlined.is-medium Delete
-            a(href=item.url).button.is-warning.is-outlined.is-medium Cancel
+            button.delete-btn(type='submit') Delete
+            a.edit-btn(href=item.url) Cancel

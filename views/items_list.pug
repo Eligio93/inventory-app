@@ -6,11 +6,8 @@ block content
     if items_list.length 
         ul 
             each item in items_list 
-                li 
+                li.listed-item
                     a(href=item.url) #{item.name}
-                    br
-                    p=item.description
     else    
         p There s no Items
-    .buttons 
-        a.button.is-primary(href='items/create') Create Item
+    a.create-btn(href='items/create') Create Item

@@ -2,18 +2,26 @@ extends layout
 
 block content
   .content
-    p.titles Item Name
-    p=item.name
-    p.titles Description
-    p=item.description
-    p.titles Qty in stock
-    p=item.stock
-    p.titles Price 
-    p=item.price
-    p.titles Category 
-    p=item.category.name 
-    p.titles Brand 
-    p=item.brand.name
-    .is-grouped.buttons 
-        a(href=item.url+'/delete').button.is-danger.is-outlined.is-medium Delete
-        a(href=item.url+'/edit').button.is-warning.is-outlined.is-medium Edit
+    h1=title
+    .info-box
+      .detail-name.detail-info
+        p Item Name
+        p=item.name
+      .detail-description.detail-info
+        p Description
+        p=item.description
+      .detail-stock.detail-info
+        p Qty in stock
+        p=item.stock
+      .detail-prce.detail-info
+        p Price 
+        p=item.price
+      .detail-category.detail-info
+        p Category 
+        p=item.category.name 
+      .detail-brand.detail-info
+        p Brand 
+        p=item.brand.name
+      .ops-btn
+          a.delete-btn(href=item.url+'/delete') Delete
+          a.edit-btn(href=item.url+'/edit') Edit

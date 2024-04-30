@@ -1,48 +1,47 @@
 extends layout
 
 block content
-  .content
-    form(method='POST')
-        .field 
-            label.label(for='item_name') Item Name:
-            input#item_name.input(type='text' name='item_name' placeholder='Item Name' required value=(item === undefined ? '' : item.name))
-        .field 
-            label.label(for='item_price') Price($):
-            input#item_price.input(type='number' min=1 name='item_price' required value=(item === undefined ? '' : item.price))
-        .field 
-            label.label(for='item_stock') Qty in stock:
-            input#item_stock.input(type='number' min=0 name='item_stock' required value=(item === undefined ? '' : item.stock))
-        .field
-            label.label(for='item_category') Category:
-            .select
-                    select#item_category(name='item_category')
-                        each category in categories
-                            if item
-                                if item.category.name === category.name    
-                                    option(value=item.category._id selected) #{item.category.name}
-                                else
-                                    option(value=category._id) #{category.name}   
-                            else 
+    .content
+        h1=title
+        form(method='POST').info-box
+            .input-group
+                label(for='item_name') Item Name:
+                input#item_name.input-field(type='text' name='item_name' placeholder='Item Name' required value=(item === undefined ? '' : item.name))
+            .input-group
+                label(for='item_price') Price($):
+                input#item_price.input-field(type='number' min=1 name='item_price' required value=(item === undefined ? '' : item.price))
+            .input-group
+                label(for='item_stock') Qty in stock:
+                input#item_stock.input-field(type='number' min=0 name='item_stock' required value=(item === undefined ? '' : item.stock))
+            .input-group
+                label(for='item_category') Category:
+                select#item_category.input-field(name='item_category')
+                    each category in categories
+                        if item
+                            if item.category.name === category.name    
+                                option(value=item.category._id selected) #{item.category.name}
+                            else
                                 option(value=category._id) #{category.name}   
-        .field
-            label.label(for='item_brand') Brands:
-            .select
-                    select#item_brand(name='item_brand')
-                        each brand in brands
-                            if item 
-                                if item.brand.name === brand.name   
-                                    option(value=item.brand._id selected) #{item.brand.name}
-                                else 
-                                    option(value=brand._id) #{brand.name}
+                        else 
+                            option(value=category._id) #{category.name}   
+            .input-group
+                label(for='item_brand') Brand:
+                select.input-field#item_brand(name='item_brand')
+                    each brand in brands
+                        if item 
+                            if item.brand.name === brand.name   
+                                option(value=item.brand._id selected) #{item.brand.name}
                             else 
                                 option(value=brand._id) #{brand.name}
-        .field 
-            label.label(for='item_description') Description:
-            textarea#item_description.textarea(name='item_description' required)=(item === undefined ? '' : item.description)
-        input.button.is-primary(type='submit' value='Submit')
+                        else 
+                            option(value=brand._id) #{brand.name}
+            .input-group
+                label(for='item_description') Description:
+                textarea#item_description.input-field(name='item_description' required rows='6')=(item === undefined ? '' : item.description)
+            input.edit-btn(type='submit' value='Submit')
 
-    if errors
-        ul
-        for error in errors
-            li!= error.msg
-        //Bisogna inserire il controllo nel caso non ci siano categoriee brand
+        if errors
+            ul
+            for error in errors
+                li!= error.msg
+            //Bisogna inserire il controllo nel caso non ci siano categoriee brand

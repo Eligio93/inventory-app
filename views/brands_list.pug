@@ -6,8 +6,8 @@ block content
     if brands_list.length 
         ul 
             each brand in brands_list 
-                li 
+                li.listed-item 
                     a(href=brand.url) #{brand.name}
     else    
         p There s no Brands
-    a.button.is-primary(href='/brands/create') Add New Brand
+    a.create-btn(href='/brands/create') Create Brand
