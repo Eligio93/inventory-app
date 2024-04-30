@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  .main
+    p.titles Category Name
+    p=category.name
+    p.titles Category Description
+    p=category.description
+    .is-grouped.buttons 
+        a(href=category.url+'/delete').button.is-danger.is-outlined.is-medium Delete
+        a(href=category.url+'/edit').button.is-warning.is-outlined.is-medium Edit
