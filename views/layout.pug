@@ -3,19 +3,18 @@ html
   head
     title= title
     link(rel='stylesheet', href='/stylesheets/style.css')
-    link(rel="stylesheet",  href="https://cdn.jsdelivr.net/npm/bulma@1.0.0/css/bulma.min.css")
+    link(rel="preconnect",href="https://fonts.googleapis.com")
+    link(rel="preconnect" href="https://fonts.gstatic.com" crossorigin)
+    link(href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Noto+Sans+Mono:wght@100..900&display=swap" rel="stylesheet")
+
   body
   .header 
   .main 
     .sidebar
-      a.button.is-warning.is-light(href='/') Home
-      br
-      a.button.is-warning.is-light(href='/items') Items
-      br
-      a.button.is-warning.is-light(href='/categories') Categories
-      br
-      a.button.is-warning.is-light(href='/brands') Brands
-      br
-  block content
+      a(href='/') Home
+      a(href='/items') Items
+      a(href='/categories') Categories
+      a(href='/brands') Brands
+    block content
  
     
