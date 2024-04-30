@@ -38,7 +38,7 @@ block content
                                 option(value=brand._id) #{brand.name}
         .field 
             label.label(for='item_description') Description:
-            textarea.textarea(name='item_description' required)=(item === undefined ? '' : item.description)
+            textarea#item_description.textarea(name='item_description' required)=(item === undefined ? '' : item.description)
         input.button.is-primary(type='submit' value='Submit')
 
     if errors
