@@ -24,6 +24,7 @@ router.get('/items/:id',itemController.item_detail);
 
 /*GET Item delete*/
 router.get('/items/:id/delete',itemController.item_delete_get);
+
 /*POST item delete*/
 router.post('/items/:id/delete',itemController.item_delete_post)
 
@@ -42,8 +43,26 @@ router.get('/categories/create',categoryController.category_form_get)
 /*POST new category form*/
 router.post('/categories/create',categoryController.category_form_post)
 
+/*GET category detail*/
+router.get('/categories/:id',categoryController.category_detail)
+
+/*GET category delete*/
+router.get('/categories/:id/delete',categoryController.category_delete_get)
+
+/*POST category delete*/
+router.post('/categories/:id/delete',categoryController.category_delete_post)
+
 /*GET brands list*/
 router.get('/brands',brandController.brands_list)
+
+/*GET brand create*/
+router.get('/brands/create',brandController.brand_create_get)
+
+/*POST brand create*/
+router.post('/brands/create',brandController.brand_create_post)
+
+/*GET brand detail*/
+router.get('/brands/:id',brandController.brand_detail)
 
 
 
