@@ -1,0 +1,21 @@
+extends layout
+
+block content
+  .main
+    if brandedItems.length > 0
+        p #[strong Delete the following Items before you delete this brand]
+        each item in brandedItems
+            ul 
+                li
+                    a(href=item.url) #{item.name}
+        a(href='/items').button.is-warning.is-outlined.is-medium Go to Items
+    else 
+        form(method='POST')
+            p.confirmation Are u sure you want to delete this Brand?
+            br
+            p=brand.name
+            br
+            .is-grouped.buttons 
+                input(type="hidden", name='id' value=brand._id)
+                button(type='submit').button.is-danger.is-outlined.is-medium Delete
+                a(href=brand.url).button.is-warning.is-outlined.is-medium Cancel
