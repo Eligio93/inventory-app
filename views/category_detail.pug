@@ -13,3 +13,8 @@ block content
       .ops-btn
           a(href=category.url+'/delete').delete-btn Delete
           a(href=category.url+'/edit').edit-btn Edit
+    if items
+      h2 ITEMS IN THIS CATEGORY
+        each item in items
+          li.listed-item 
+            a(href=item.url) #{item.name}

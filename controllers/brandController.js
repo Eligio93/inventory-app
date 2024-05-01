@@ -44,7 +44,8 @@ exports.brand_create_post = [
 /*GET brand details*/
 exports.brand_detail = asyncHandler(async (req, res, next) => {
     const brand = await Brand.findById(req.params.id).exec();
-    res.render('brand_detail', { brand: brand })
+    const itemsInBrand=await Item.find({brand:brand},'name').exec();
+    res.render('brand_detail', { brand: brand,items:itemsInBrand })
 })
 
 /*GET brand delete*/

@@ -10,3 +10,8 @@ block content
       .ops-btn
           a(href=brand.url+'/delete').delete-btn Delete
           a(href=brand.url+'/edit').edit-btn Edit
+    if items
+      h2 ITEMS WITH THIS BRAND
+        each item in items
+          li.listed-item 
+            a(href=item.url) #{item.name}

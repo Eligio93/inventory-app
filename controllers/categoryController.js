@@ -52,7 +52,8 @@ exports.category_form_post = [
 /*GET category detail*/
 exports.category_detail = asyncHandler(async (req, res, next) => {
     const category = await Category.findById(req.params.id).exec();
-    res.render('category_detail', { category: category })
+    const itemsInCategory=await Item.find({category:category},'name').exec();
+    res.render('category_detail', { category: category, items:itemsInCategory })
 })
 
 /*GET category delete*/
