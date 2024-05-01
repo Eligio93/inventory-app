@@ -37,7 +37,7 @@ block content
                             option(value=brand._id) #{brand.name}
             .input-group
                 label(for='item_description') Description:
-                textarea#item_description.input-field(name='item_description' required rows='6')=(item === undefined ? '' : item.description)
+                textarea#item_description.input-field(name='item_description' required rows='6' placeholder='Item Description')=(item === undefined ? '' : item.description)
             input.edit-btn(type='submit' value='Submit')
 
         if errors
