@@ -1,175 +1,319 @@
-:root{
-  --background-blue:#151932;
-  --warning-yellow:#ffb017;
-  --content-background:#0f172a;
-  --header-purple:#7c3aed;
-  --header-dark-purple:#5b21b6;
-  --button-light-blue:#60a5fa;
-  --button-dark-blue:#1d4ed8;
-  --button-red:#f43f5e;
-  --button-dark-red:#be123c;
-  --button-green:#10b981;
-  --button-dark-green:#065f46;
-  --detail-box:#1e293b;
-  --github-btn:#b9185b;
+:root {
+  --background-blue: #151932;
+  --warning-yellow: #ffb017;
+  --content-background: #0f172a;
+  --header-purple: #7c3aed;
+  --header-dark-purple: #5b21b6;
+  --button-light-blue: #60a5fa;
+  --button-dark-blue: #1d4ed8;
+  --button-red: #f43f5e;
+  --button-dark-red: #be123c;
+  --button-green: #10b981;
+  --button-dark-green: #065f46;
+  --detail-box: #1e293b;
+  --github-btn: #b9185b;
 }
-*{
-  margin:0;
-  padding:0;
+
+* {
+  margin: 0;
+  padding: 0;
   box-sizing: border-box;
 }
-body{
-  display:flex;
+
+body {
+  display: flex;
   flex-direction: column;
   background-color: var(--background-blue);
-  min-height:100vh;
-  color:white;
-  font-family: 'inter',sans-serif;
+  min-height: 100vh;
+  color: white;
+  font-family: 'inter', sans-serif;
 }
-.main{
-  display:flex;
-  gap:50px;
-  padding:20px;
-  flex:1;
+
+.main {
+  display: flex;
+  gap: 50px;
+  padding: 20px;
+  flex: 1;
 }
-.sidebar{
-  width:20%;
-  display:flex;
+
+.sidebar {
+  width: 20%;
+  display: flex;
   flex-direction: column;
-  gap:30px;
+  gap: 30px;
 }
-.sidebar a{
+
+.sidebar a {
   text-decoration: none;
-  color:var(--warning-yellow);
-  border:1px solid var(--warning-yellow);
-  padding:10px;
+  color: var(--warning-yellow);
+  border: 1px solid var(--warning-yellow);
+  padding: 10px;
   text-align: center;
   border-radius: 10px;
   font-size: 1vw;
   text-transform: uppercase;
-  font-weight:500;
-  transition:background-color 1s ease
+  font-weight: 500;
+  transition: background-color 1s ease
 }
-.sidebar a:hover{
- color:var(--background-blue);
- background-color: var(--warning-yellow);
- font-weight: bold;
+
+.sidebar a:hover {
+  color: var(--background-blue);
+  background-color: var(--warning-yellow);
+  font-weight: bold;
 
 }
-.sidebar :nth-last-child(1){
+
+.sidebar :nth-last-child(1) {
   border-color: var(--github-btn);
-  color:var(--github-btn)
+  color: var(--github-btn)
 }
-.sidebar :nth-last-child(1):hover{
+
+.sidebar :nth-last-child(1):hover {
   background-color: var(--github-btn);
-  color:var(--background-blue);
-font-weight: bold;
+  color: var(--background-blue);
+  font-weight: bold;
 }
-.content{
-  width:80%;
+
+.content {
+  width: 80%;
   min-height: 100%;
   background-color: var(--content-background);
-  padding:20px;
+  padding: 20px;
   border-radius: 10px;
 }
-.content li{
+
+.content li {
   list-style-type: none;
-  
+
 }
-.content h1{
+
+.content h1 {
   font-size: 2vw;
   text-transform: uppercase;
 }
-.listed-item{
+
+.listed-item {
   margin-top: 10px;
   width: 100%;
 }
-.listed-item a{
+
+.listed-item a {
   text-decoration: none;
   font-size: 1vw;
-  color:white;
+  color: white;
   background-color: var(--header-purple);
-  display:block;
-  padding:10px;
-  border-radius: 10px;;
+  display: block;
+  padding: 10px;
+  border-radius: 10px;
+  ;
   text-transform: uppercase;
 }
-.listed-item a:hover{
+
+.listed-item a:hover {
   background-color: var(--header-dark-purple);
 }
-.create-btn,.delete-btn,.edit-btn,.cancel-btn{
+
+.create-btn,
+.delete-btn,
+.edit-btn,
+.cancel-btn {
   margin-top: 10px;
-  padding:10px;
-  color:white;
+  padding: 10px;
+  color: white;
   background-color: var(--button-green);
   text-decoration: none;
   width: fit-content;
   display: block;
   font-size: 1vw;
 }
-.create-btn:hover{
+
+.create-btn:hover {
   background-color: var(--button-dark-green);
 }
-.info-box{
-  margin-top:10px;
+
+.info-box {
+  margin-top: 10px;
   background-color: var(--detail-box);
-  padding:20px;
+  padding: 20px;
   border-radius: 10px;
-  display:flex;
+  display: flex;
   flex-direction: column;
-  gap:20px;
+  gap: 20px;
 }
 
-.detail-info p:nth-of-type(2){
+.detail-info p:nth-of-type(2) {
   font-size: 1.3vw;
 
 }
-.detail-info p:nth-of-type(1){
+
+.detail-info p:nth-of-type(1) {
   font-size: 1vw;
   font-style: italic;
-  border-bottom:1px solid var(--warning-yellow);
-  margin-bottom:10px;
-  padding-bottom:5px;
+  border-bottom: 1px solid var(--warning-yellow);
+  margin-bottom: 10px;
+  padding-bottom: 5px;
 }
-.ops-btn{
-  display:flex;
-  gap:10px;
+
+.ops-btn {
+  display: flex;
+  gap: 10px;
 }
-.delete-btn{
+
+.delete-btn {
   background-color: var(--button-red)
 }
-.delete-btn:hover{
+
+.delete-btn:hover {
   background-color: var(--button-dark-red)
 }
-.edit-btn{
+
+.edit-btn {
   background-color: var(--button-light-blue);
 }
-.edit-btn:hover{
+
+.edit-btn:hover {
   background-color: var(--button-dark-blue)
 }
-.cancel-btn{
+
+.cancel-btn {
   background-color: var(--warning-yellow);
-  color:var(--content-background)
+  color: var(--content-background)
 }
-.input-group{
-  display:flex;
+
+.input-group {
+  display: flex;
   flex-direction: column;
 }
-.input-group :nth-child(1){
+
+.input-group :nth-child(1) {
   font-size: 1.3vw;
   font-weight: bold;
 }
-.input-field{
+
+.input-field {
   font-size: 1vw;
-  padding:10px;
-  border:none;
-  border-bottom:1px solid var(--warning-yellow);
+  padding: 10px;
+  border: none;
+  border-bottom: 1px solid var(--warning-yellow);
   background-color: var(--content-background);
-  color:white;
+  color: white;
 }
-textarea{
+
+textarea {
   resize: none;
 }
-h2{
-  margin-top:20px;
+
+h2 {
+  margin-top: 20px;
+  font-size: 1.8vw;
+}
+
+.index {
+  height: 100%;
+  display: flex;
+  gap: 50px;
+  flex-direction: column;
+  align-items: center;
+}
+
+@media screen and (max-width: 430px) {
+  .main {
+    padding: 10px;
+    gap: 10px;
+  }
+
+  .sidebar {
+    width: 30%;
+  }
+
+  .sidebar a {
+    width: 100%;
+    padding: 5px;
+    font-size: 3vw;
+  }
+
+  .index h1 {
+    font-size: 5vw;
+  }
+
+  .content h1 {
+    font-size: 5vw;
+  }
+
+  .listed-item a {
+    font-size: 3vw;
+  }
+
+  .create-btn,
+  .delete-btn,
+  .edit-btn,
+  .cancel-btn {
+    font-size: 4vw;
+  }
+
+  .detail-info p:nth-of-type(2) {
+    font-size: 3.5vw;
+
+  }
+
+  .detail-info p:nth-of-type(1) {
+    font-size: 3.2vw;
+  }
+
+  .input-group :nth-child(1) {
+    font-size: 3.2vw;
+  }
+
+  .input-field {
+    font-size: 4vw;
+  }
+
+  h2 {
+    font-size: 3vw;
+  }
+
+
+}
+
+@media screen and (min-width:431px) and (max-width:800px) {
+  .sidebar a {
+    font-size: 2.2vw;
+  }
+
+  .content h1 {
+    font-size: 3vw;
+  }
+
+  .listed-item a {
+    font-size: 2vw;
+  }
+
+  .create-btn,
+  .delete-btn,
+  .edit-btn,
+  .cancel-btn {
+    font-size: 2.5vw;
+  }
+
+  .detail-info p:nth-of-type(2) {
+    font-size: 2.2vw;
+
+  }
+
+  .detail-info p:nth-of-type(1) {
+    font-size: 1.8vw;
+  }
+
+  .input-group :nth-child(1) {
+    font-size: 1.8vw;
+  }
+
+  .input-field {
+    font-size: 2vw;
+  }
+
+  h2 {
+    font-size: 1.7vw;
+  }
+
 }
