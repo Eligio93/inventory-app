@@ -2,8 +2,11 @@ extends layout
 
 block content
   .content
-    p.titles Brand Name
-    p=brand.name
-    .is-grouped.buttons 
-        a(href=brand.url+'/delete').button.is-danger.is-outlined.is-medium Delete
-        a(href=brand.url+'/edit').button.is-warning.is-outlined.is-medium Edit
+    h1 BRAND DETAIL
+    .info-box
+      .detail-info
+        p Brand Name
+        p=brand.name
+      .ops-btn
+          a(href=brand.url+'/delete').delete-btn Delete
+          a(href=brand.url+'/edit').edit-btn Edit

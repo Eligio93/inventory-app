@@ -2,10 +2,14 @@ extends layout
 
 block content
   .content
-    p.titles Category Name
-    p=category.name
-    p.titles Category Description
-    p=category.description
-    .is-grouped.buttons 
-        a(href=category.url+'/delete').button.is-danger.is-outlined.is-medium Delete
-        a(href=category.url+'/edit').button.is-warning.is-outlined.is-medium Edit
+    h1='Category Detail'
+    .info-box
+      .detail-info
+        p Category Name
+        p=category.name
+      .detail-info
+        p Category Description
+        p=category.description
+      .ops-btn
+          a(href=category.url+'/delete').delete-btn Delete
+          a(href=category.url+'/edit').edit-btn Edit

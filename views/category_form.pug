@@ -2,14 +2,15 @@ extends layout
 
 block content
   .content
-    form(method='POST')
-        .field 
+    h1=title
+    form(method='POST').info-box
+        .input-group
             label.label(for='category_name') Category Name:
-            input#category_name.input(type='text' name='category_name' minlength='3' placeholder='Name your Category' required value=(category === undefined ? '' : category.name))
-        .field 
+            input#category_name.input-field(type='text' name='category_name' minlength='3' placeholder='Name your Category' required value=(category === undefined ? '' : category.name))
+        .input-group
             label.label(for='category_description') Category Description:
-            textarea#category_description.textarea(name='category_description' required placeholder='Describe your Category')=(category === undefined ? '' : category.description)
-        input.button.is-primary(type='submit' value='Submit')
+            textarea#category_description.input-field(name='category_description' required placeholder='Describe your Category')=(category === undefined ? '' : category.description)
+        input.edit-btn(type='submit' value='Submit')
 
     if errors
         ul

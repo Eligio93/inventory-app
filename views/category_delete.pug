@@ -2,20 +2,22 @@ extends layout
 
 block content
   .content
-    if categorizedItems.length > 0
-        p #[strong Delete the following Items before you delete this category]
-        each item in categorizedItems
-            ul 
-                li
-                    a(href=item.url) #{item.name}
-        a(href='/items').button.is-warning.is-outlined.is-medium Go to Items
-    else 
-        form(method='POST')
-            p.confirmation Are u sure you want to delete this Category?
-            br
-            p=category.name
-            br
-            .is-grouped.buttons 
-                input(type="hidden", name='id' value=category._id)
-                button(type='submit').button.is-danger.is-outlined.is-medium Delete
-                a(href=category.url).button.is-warning.is-outlined.is-medium Cancel
+    h1 DELETE CATEGORY
+    .info-box
+        if categorizedItems.length > 0
+            p #[strong Delete the following Items before you delete this category]
+            each item in categorizedItems
+                ul 
+                    li.listed-item
+                        a(href=item.url) #{item.name}
+            a(href='/items').cancel-btn Go to Items
+        else 
+            form(method='POST')
+                p Are u sure you want to delete this Category?
+                br
+                p=category.name
+                br
+                .ops-btn
+                    input(type="hidden", name='id' value=category._id)
+                    button(type='submit').delete-btn Delete
+                    a(href=category.url).cancel-btn Cancel
