@@ -14,7 +14,7 @@ exports.brands_list = asyncHandler(async (req, res, next) => {
 
 /*GET the form to create a brand*/
 exports.brand_create_get = asyncHandler(async (req, res, next) => {
-    res.render('brand_form', { title: 'Brand Form' })
+    res.render('brand_form', { title: 'Create new brand' })
 })
 
 /*POST form to create brand*/
@@ -68,7 +68,7 @@ exports.brand_delete_post = asyncHandler(async (req, res, next) => {
 /*GET edit brand*/
 exports.brand_edit_get = asyncHandler(async (req, res, next) => {
     const brand = await Brand.findById(req.params.id).exec();
-    res.render('brand_form', { brand: brand })
+    res.render('brand_form', { brand: brand,title:'Edit Brand' })
 })
 
 /*POST edit brand*/

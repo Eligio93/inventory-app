@@ -15,7 +15,7 @@ exports.categories_list = asyncHandler(async (req, res, next) => {
 
 /*GET the form to create category*/
 exports.category_form_get = asyncHandler(async (req, res, next) => {
-    res.render('category_form', { title: 'Category Form' })
+    res.render('category_form', { title: 'Create New Category' })
 })
 
 
@@ -77,7 +77,7 @@ exports.category_delete_post = asyncHandler(async (req, res, next) => {
 /*GET category edit*/
 exports.category_edit_get = asyncHandler(async (req, res, next) => {
     const category = await Category.findById(req.params.id).exec();
-    res.render('category_form', { category: category })
+    res.render('category_form', { category: category, title:'Edit Category'})
 })
 
 /*POST category edit*/

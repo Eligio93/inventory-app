@@ -17,7 +17,7 @@ exports.item_create=asyncHandler(async(req,res,next)=>{
     Category.find({},'name').sort({name:1}).exec(),
     Brand.find({},'name').sort({name:1}).exec()
 ])
-    res.render('item_form',{categories:allCategories, brands: allBrands})
+    res.render('item_form',{categories:allCategories, brands: allBrands,title:'Create New Item'})
 })
 /*POST form create item*/
 exports.item_create_post=[
