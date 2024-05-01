@@ -11,6 +11,7 @@
   --button-green:#10b981;
   --button-dark-green:#065f46;
   --detail-box:#1e293b;
+  --github-btn:#b9185b;
 }
 *{
   margin:0;
@@ -55,6 +56,15 @@ body{
  font-weight: bold;
 
 }
+.sidebar :nth-last-child(1){
+  border-color: var(--github-btn);
+  color:var(--github-btn)
+}
+.sidebar :nth-last-child(1):hover{
+  background-color: var(--github-btn);
+  color:var(--background-blue);
+font-weight: bold;
+}
 .content{
   width:80%;
   min-height: 100%;
@@ -87,7 +97,7 @@ body{
 .listed-item a:hover{
   background-color: var(--header-dark-purple);
 }
-.create-btn,.delete-btn,.edit-btn{
+.create-btn,.delete-btn,.edit-btn,.cancel-btn{
   margin-top: 10px;
   padding:10px;
   color:white;
@@ -109,12 +119,17 @@ body{
   flex-direction: column;
   gap:20px;
 }
-.detail-info p:nth-of-type(1){
-  font-size: 1.3vw;
-  font-style: italic;
-}
+
 .detail-info p:nth-of-type(2){
+  font-size: 1.3vw;
+
+}
+.detail-info p:nth-of-type(1){
   font-size: 1vw;
+  font-style: italic;
+  border-bottom:1px solid var(--warning-yellow);
+  margin-bottom:10px;
+  padding-bottom:5px;
 }
 .ops-btn{
   display:flex;
@@ -131,6 +146,10 @@ body{
 }
 .edit-btn:hover{
   background-color: var(--button-dark-blue)
+}
+.cancel-btn{
+  background-color: var(--warning-yellow);
+  color:var(--content-background)
 }
 .input-group{
   display:flex;
