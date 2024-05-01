@@ -71,20 +71,22 @@ console.log(
   async function createCategories() {
     console.log("Adding categories");
     await Promise.all([
-      categoryCreate(0, "Perfumes",'Perfumes for her and for him'),
-      categoryCreate(1, "Shampoo", 'Transform your haircare routine with our rejuvenating shampoo, delivering nourishment and vitality in every wash.'),
-      categoryCreate(2, "Shower Gel", 'Elevate your shower experience with our invigorating shower gel, leaving your skin refreshed and revitalized.'),
+      categoryCreate(0, "Shampoo","Elevate your hair care routine with our diverse range of shampoos. From hydrating to strengthening, anti-dandruff to volumizing, we've got your hair needs covered."),
+      categoryCreate(1, "Hair Products", "Achieve your best look with our quality hair products! From styling essentials to nourishing serums, we've got you covered for effortless style."),
+      categoryCreate(2, "Beard Balms", "Refine your grooming with our top-tier beard balms! Perfect for conditioning and styling, our selection ensures your facial hair stays soft and manageable."),
+      categoryCreate(3, "Fragrances", "Discover premium fragrances crafted to captivate your senses and leave a lasting impression."),
+      categoryCreate(4, "Toothpastes", "Elevate your oral care with our premium toothpastes! Crafted for various needs like whitening and sensitivity relief, they ensure a refreshing clean every time you brush."),
     ]);
   }
   
   async function createBrands() {
     console.log("Adding brands");
     await Promise.all([
-      brandCreate(0, "Creed"),
-      brandCreate(1, "Breeze"),
-      brandCreate(2, "Reuzel"),
-      brandCreate(3, "Alfaparf"),
-      brandCreate(4, "American Crew"),
+      brandCreate(0, "Layrite"),
+      brandCreate(1, "Reuzel"),
+      brandCreate(2, "Proraso"),
+      brandCreate(3, "Tabac Original"),
+      brandCreate(4, "Marvis"),
     ]);
   }
   
@@ -92,43 +94,43 @@ console.log(
     console.log("Adding Items");
     await Promise.all([
       itemCreate(0,
-        "Cipresso Nobile Eau de Parfum 100ml",
-        '"Tall and blunt", the Cypress tree protects the immortal beauty of Bolgheri. The excellence of the cypress together with water notes reveals hints of lavender then dissolving in a precious fresh trail. Acqua di Bolgheri Cipresso Nobile fragrance main notes are: cypress, bergamot and water notes, lily of the valley and lavender, sclarea sage and sweet wood.',
+        "LAYRITE DAILY SHAMPOO 300ML",
+        "The Layrite Daily Shampoo cleanses your hair, gently moisturising it with natural oils for a fuller and healthier look. A perfect choice for your daily hair care routine.",
         categories[0],
-        58,
-        20,
+        36,
+        10,
         brands[0]
       ),
       itemCreate(1,
-        "Sapone Doccia",
-        '"Tall and blunt", the Cypress tree protects the immortal beauty of Bolgheri. The excellence of the cypress together with water notes reveals hints of lavender then dissolving in a precious fresh trail. Acqua di Bolgheri Cipresso Nobile fragrance main notes are: cypress, bergamot and water notes, lily of the valley and lavender, sclarea sage and sweet wood.',
-        categories[2],
-        58,
-        20,
+        "REUZEL BLUE STRONG HOLD POMADE 113G",
+        "The Reuzel Blue Pomade gives a strong hold and high shine. This pomade is water soluble, making it easy to remove without any leftover residue.",
+        categories[1],
+        39,
+        10,
         brands[1]
       ),
       itemCreate(2,
-        "Shampoo delicato",
-        '"Tall and blunt", the Cypress tree protects the immortal beauty of Bolgheri. The excellence of the cypress together with water notes reveals hints of lavender then dissolving in a precious fresh trail. Acqua di Bolgheri Cipresso Nobile fragrance main notes are: cypress, bergamot and water notes, lily of the valley and lavender, sclarea sage and sweet wood.',
-        categories[1],
-        58,
-        20,
+        "PRORASO BEARD BALM WOOD & SPICE 100ML",
+        "The Proraso Beard Balm Wood & Spice provides low shine with no hold, designed more to specifically soothe and soften coarse beard hairs. Ideal for stubble or if you suffer from beard itch.",
+        categories[2],
+        30,
+        10,
         brands[2]
       ),
       itemCreate(3,
-        "Altro shampoo delicato",
-        '"Tall and blunt", the Cypress tree protects the immortal beauty of Bolgheri. The excellence of the cypress together with water notes reveals hints of lavender then dissolving in a precious fresh trail. Acqua di Bolgheri Cipresso Nobile fragrance main notes are: cypress, bergamot and water notes, lily of the valley and lavender, sclarea sage and sweet wood.',
-        categories[1],
-        58,
-        20,
+        "TABAC ORIGINAL CRAFTSMAN EAU DE TOILETTE SPRAY 100ML",
+        "The Tabac Original Craftsman Eau De Toilette Spray features a distinctive aromatic scent of citrus, peppery spice combined with the sensual warmth of tonka bean, leather and precious woods that create a fragrance radiating determination and strength.",
+        categories[3],
+        25,
+        10,
         brands[3]
       ),
       itemCreate(4,
-        "ERolfa",
-        '"Tall and blunt", the Cypress tree protects the immortal beauty of Bolgheri. The excellence of the cypress together with water notes reveals hints of lavender then dissolving in a precious fresh trail. Acqua di Bolgheri Cipresso Nobile fragrance main notes are: cypress, bergamot and water notes, lily of the valley and lavender, sclarea sage and sweet wood.',
-        categories[0],
-        58,
-        20,
+        "MARVIS TOOTHPASTE WHITENING MINT 85ML",
+        "The Marvis Toothpaste Whitening Mint whitens teeth while preventing tooth decay, leaving your mouth clean with a fresh minty finish.",
+        categories[4],
+        17,
+        10,
         brands[4]
       )
     ]);
