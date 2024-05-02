@@ -3,13 +3,16 @@ const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
+const compression =require('compression')
 require('dotenv').config()
 
+const app = express();
+app.use(compression());
 
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
-const app = express();
+
 const mongoose= require('mongoose')
 mongoose.set("strictQuery", false);
 const dev_URL='mongodb+srv://'+process.env.DBUSER+':'+process.env.DBPSSW+'@cluster0.6cfbgho.mongodb.net/inventory_app?retryWrites=true&w=majority&appName=Cluster0';
